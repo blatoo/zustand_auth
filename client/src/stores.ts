@@ -2,6 +2,7 @@ import { ICurrentUser } from "./../type";
 import { create } from "zustand";
 import axios from "axios";
 import { createJSONStorage, persist } from "zustand/middleware";
+import { mountStoreDevtool } from "simple-zustand-devtools";
 
 export interface IAuthState {
   loading: boolean;
@@ -46,3 +47,7 @@ export const useAuthStore = create<IAuthState>()(
     }
   )
 );
+
+if (process.env.NODE_ENV === "development") {
+  mountStoreDevtool("Store", useAuthStore);
+}
