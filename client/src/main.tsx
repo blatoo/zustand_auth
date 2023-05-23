@@ -3,20 +3,25 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import { SignIn } from "./SignIn";
+import { ProtectedRoute } from "./ProtectedRoute";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/signin",
-    element: <SignIn />,
-  },
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: (
+//       <ProtectedRoute>
+//         <App />
+//       </ProtectedRoute>
+//     ),
+//   },
+//   {
+//     path: "/signin",
+//     element: <SignIn />,
+//   },
+// ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 );

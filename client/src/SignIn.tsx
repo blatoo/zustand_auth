@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthStore } from "./stores";
+import { Navigate } from "react-router-dom";
 
 export const SignIn = () => {
   const [identifier, setIdentifier] = useState<string | undefined>(
@@ -13,6 +14,8 @@ export const SignIn = () => {
     event.preventDefault();
     login(identifier!, password!);
   };
+
+  if (currentUser) return <Navigate to="/" />;
 
   return (
     <>
