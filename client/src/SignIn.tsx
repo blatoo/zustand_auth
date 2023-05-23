@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthStore } from "./stores";
 import { Navigate } from "react-router-dom";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 export const SignIn = () => {
   const [identifier, setIdentifier] = useState<string | undefined>(
